@@ -1,0 +1,41 @@
+name: Daily arXiv Papers Update
+
+on:
+  schedule:
+    - cron: '30 16 * * 0-4' # 00:30 Beijing time every Monday to Friday
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update_daily_papers:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Update papers
+      run: python main.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add README.md .github/ISSUE_TEMPLATE.md
+        git diff --quiet && git diff --staged --quiet || git commit -m "✏️ Update papers - $(date +'%Y-%m-%d')"
+        git push
+
+    - name: Create an issue to notify
+      uses: JasonEtco/create-an-issue@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
