@@ -1,9 +1,10 @@
 import os
+import re
 import time
 import pytz
 import shutil
 import datetime
-from typing import List, Dict
+from typing import Any, Dict, List, Union
 import urllib, urllib.request
 
 import feedparser
@@ -13,11 +14,55 @@ from easydict import EasyDict
 def remove_duplicated_spaces(text: str) -> str:
     return " ".join(text.split())
 
-def request_paper_with_arXiv_api(keyword: str, max_results: int, link: str = "OR") -> List[Dict[str, str]]:
-    # keyword = keyword.replace(" ", "+")
-    assert link in ["OR", "AND"], "link should be 'OR' or 'AND'"
-    keyword = "\"" + keyword + "\""
-    url = "http://export.arxiv.org/api/query?search_query=ti:{0}+{2}+abs:{0}&max_results={1}&sortBy=lastUpdatedDate".format(keyword, max_results, link)
+QuerySpec = Union[str, Dict[str, Any]]
+
+
+def get_query_title(query: QuerySpec) -> str:
+    if isinstance(query, str):
+        return query
+    return query["title"]
+
+
+def _quote_term(term: str) -> str:
+    return '"' + term.replace('"', '\\"') + '"'
+
+
+def _title_or_abstract_clause(term: str) -> str:
+    term = _quote_term(term)
+    return "(ti:{0}+OR+abs:{0})".format(term)
+
+
+def format_arxiv_search_query(query: QuerySpec, link: str = "OR") -> str:
+    if isinstance(query, str):
+        assert link in ["OR", "AND"], "link should be 'OR' or 'AND'"
+        term = _quote_term(query)
+        return "ti:{0} {1} abs:{0}".format(term, link)
+
+    clauses = []
+    for group in query["terms"]:
+        terms = group if isinstance(group, list) else [group]
+        group_clauses = ["ti:{0} OR abs:{0}".format(_quote_term(term)) for term in terms]
+        clauses.append("(" + " OR ".join(group_clauses) + ")")
+    return " AND ".join(clauses)
+
+
+def build_arxiv_search_query(query: QuerySpec, link: str = "OR") -> str:
+    if isinstance(query, str):
+        assert link in ["OR", "AND"], "link should be 'OR' or 'AND'"
+        keyword = _quote_term(query)
+        return "ti:{0}+{1}+abs:{0}".format(keyword, link)
+
+    clauses = []
+    for group in query["terms"]:
+        terms = group if isinstance(group, list) else [group]
+        group_clauses = [_title_or_abstract_clause(term) for term in terms]
+        clauses.append("(" + "+OR+".join(group_clauses) + ")")
+    return "+AND+".join(clauses)
+
+
+def request_paper_with_arXiv_api(query: QuerySpec, max_results: int, link: str = "OR") -> List[Dict[str, str]]:
+    search_query = build_arxiv_search_query(query, link)
+    url = "http://export.arxiv.org/api/query?search_query={0}&max_results={1}&sortBy=lastUpdatedDate".format(search_query, max_results)
     url = urllib.parse.quote(url, safe="%/:=&?~#+!$,;'@()*[]")
     response = urllib.request.urlopen(url).read().decode('utf-8')
     feed = feedparser.parse(response)
@@ -57,19 +102,19 @@ def filter_tags(papers: List[Dict[str, str]], target_fileds: List[str]=["cs", "s
                 break
     return results
 
-def get_daily_papers_by_keyword_with_retries(keyword: str, column_names: List[str], max_result: int, link: str = "OR", retries: int = 6) -> List[Dict[str, str]]:
+def get_daily_papers_by_keyword_with_retries(query: QuerySpec, column_names: List[str], max_result: int, link: str = "OR", retries: int = 2) -> List[Dict[str, str]]:
     for _ in range(retries):
-        papers = get_daily_papers_by_keyword(keyword, column_names, max_result, link)
+        papers = get_daily_papers_by_keyword(query, column_names, max_result, link)
         if len(papers) > 0: return papers
         else:
             print("Unexpected empty list, retrying...")
-            time.sleep(60 * 30) # wait for 30 minutes
+            time.sleep(60) # wait for 1 minute
     # failed
-    return None
+    return []
 
-def get_daily_papers_by_keyword(keyword: str, column_names: List[str], max_result: int, link: str = "OR") -> List[Dict[str, str]]:
+def get_daily_papers_by_keyword(query: QuerySpec, column_names: List[str], max_result: int, link: str = "OR") -> List[Dict[str, str]]:
     # get papers
-    papers = request_paper_with_arXiv_api(keyword, max_result, link) # NOTE default columns: Title, Authors, Abstract, Link, Tags, Comment, Date
+    papers = request_paper_with_arXiv_api(query, max_result, link) # NOTE default columns: Title, Authors, Abstract, Link, Tags, Comment, Date
     # NOTE filtering tags: only keep the papers in cs field
     # TODO filtering more
     papers = filter_tags(papers)
@@ -77,7 +122,30 @@ def get_daily_papers_by_keyword(keyword: str, column_names: List[str], max_resul
     papers = [{column_name: paper[column_name] for column_name in column_names} for paper in papers]
     return papers
 
+
+def get_paper_identity(paper: Dict[str, str]) -> str:
+    link = paper.get("Link", "")
+    match = re.search(r"arxiv\.org/abs/([^?#]+)", link)
+    if match:
+        return re.sub(r"v\d+$", "", match.group(1))
+    return link or paper.get("Title", "")
+
+
+def deduplicate_papers(papers: List[Dict[str, str]], seen_papers: set) -> List[Dict[str, str]]:
+    results = []
+    for paper in papers:
+        paper_identity = get_paper_identity(paper)
+        if paper_identity in seen_papers:
+            continue
+        seen_papers.add(paper_identity)
+        results.append(paper)
+    return results
+
+
 def generate_table(papers: List[Dict[str, str]], ignore_keys: List[str] = []) -> str:
+    if len(papers) == 0:
+        return "_No matching papers found for this query._"
+
     formatted_papers = []
     keys = papers[0].keys()
     for paper in papers:

@@ -1,0 +1,81 @@
+max_result: 50
+issues_result: 15
+column_names:
+  - Title
+  - Link
+  - Abstract
+  - Date
+  - Comment
+
+search_queries:
+  - title: Off-Road Autonomous Driving
+    description: End-to-end autonomy, perception, decision-making, and planning for off-road driving systems.
+    terms:
+      - [off-road, off road]
+      - [autonomous driving, self-driving, driverless]
+
+  - title: Off-Road Navigation and Path Planning
+    description: Navigation, path planning, motion planning, and trajectory generation in off-road or cross-country environments.
+    terms:
+      - [off-road, off road, cross-country]
+      - [navigation, path planning, motion planning, trajectory planning]
+
+  - title: Off-Road Freespace and Traversability
+    description: Freespace detection, terrain traversability estimation, and drivable-area reasoning for unstructured terrain.
+    terms:
+      - [off-road, off road, rough terrain, unstructured environment, unstructured environments]
+      - [freespace, free space, traversability, terrain traversability, drivable area]
+
+  - title: Unstructured Environment Autonomous Navigation
+    description: Autonomous navigation and planning in rough, complex, or weakly structured outdoor environments.
+    terms:
+      - [unstructured environment, unstructured environments, complex terrain, rough terrain]
+      - [autonomous navigation, autonomous driving, path planning, motion planning]
+
+  - title: VLA for Autonomous Driving
+    description: Vision-language-action models and action generation methods for autonomous driving.
+    terms:
+      - [vision-language-action, vision language action, VLA]
+      - [autonomous driving, end-to-end autonomous driving, driving]
+
+  - title: VLA for Off-Road Driving
+    description: VLA-style policies and multimodal action reasoning applied to off-road or unstructured driving scenes.
+    terms:
+      - [vision-language-action, vision language action, VLA]
+      - [off-road, off road, unstructured environment, unstructured environments]
+
+  - title: VLM for Navigation and Localization
+    description: Vision-language models, visual foundation models, localization, and map-aware navigation.
+    terms:
+      - [vision-language model, vision language model, VLM, visual foundation model]
+      - [navigation, localization, point cloud map, point cloud maps, path planning]
+
+  - title: Visual Prompt Reasoning
+    description: Visual prompting and reasoning methods that may support planning, navigation, and driving decisions.
+    terms:
+      - [visual prompt, visual prompting]
+      - [reasoning, planning, autonomous driving, navigation]
+
+  - title: World Models for Autonomous Driving
+    description: World models, future prediction, planning priors, and trajectory reasoning for driving and navigation.
+    terms:
+      - [world model, world models]
+      - [autonomous driving, navigation, planning, trajectory prediction]
+
+  - title: Embodied AI for Navigation
+    description: Embodied agents, embodied intelligence, and robot navigation methods relevant to autonomous systems.
+    terms:
+      - [embodied AI, embodied intelligence, embodied agent]
+      - [navigation, planning, autonomous driving, robot]
+
+  - title: Off-Road Datasets and Benchmarks
+    description: Datasets, benchmarks, and evaluation protocols for off-road driving and unstructured environments.
+    terms:
+      - [off-road, off road, unstructured environment, unstructured environments]
+      - [dataset, benchmark, benchmarks]
+
+  - title: Scene Captioning for Driving
+    description: Scene captioning, multimodal routing, and language-conditioned scene understanding for driving.
+    terms:
+      - [scene captioning, captioning, multi-modal routing, multimodal routing]
+      - [off-road, autonomous driving, path planning, navigation]
