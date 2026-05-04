@@ -1,5 +1,5 @@
 ---
-title: Latest 15 Papers - May 03, 2026
+title: Latest 15 Papers - May 04, 2026
 labels: documentation
 ---
 **Please check the [Github](https://github.com/quanyushi/DailyArxiv) page for a better reading experience and more papers.**
@@ -119,6 +119,7 @@ labels: documentation
 ## VLM for Navigation and Localization
 | **Title** | **Date** | **Comment** |
 | --- | --- | --- |
+| **[Thinking in Text and Images: Interleaved Vision--Language Reasoning Traces for Long-Horizon Robot Manipulation](https://arxiv.org/abs/2605.00438v1)** | 2026-05-01 |  |
 | **[FineState-Bench: Benchmarking State-Conditioned Grounding for Fine-grained GUI State Setting](https://arxiv.org/abs/2604.27974v1)** | 2026-04-30 |  |
 | **[OmniDrive-R1: Reinforcement-driven Interleaved Multi-modal Chain-of-Thought for Trustworthy Vision-Language Autonomous Driving](https://arxiv.org/abs/2512.14044v3)** | 2026-04-30 |  |
 | **[Auditing Frontier Vision-Language Models for Trustworthy Medical VQA: Grounding Failures, Format Collapse, and Domain Adaptation](https://arxiv.org/abs/2604.27720v1)** | 2026-04-30 |  |
@@ -133,11 +134,11 @@ labels: documentation
 | **[ViTaPEs: Visuotactile Position Encodings for Cross-Modal Alignment in Multimodal Transformers](https://arxiv.org/abs/2505.20032v3)** | 2026-04-29 |  |
 | **[A Multistage Extraction Pipeline for Long Scanned Financial Documents: An Empirical Study in Industrial KYC Workflows](https://arxiv.org/abs/2604.26462v1)** | 2026-04-29 |  |
 | **[VLN-Cache: Enabling Token Caching for VLN Models with Visual/Semantic Dynamics Awareness](https://arxiv.org/abs/2603.07080v3)** | 2026-04-29 |  |
-| **[CoFL: Continuous Flow Fields for Language-Conditioned Navigation](https://arxiv.org/abs/2603.02854v2)** | 2026-04-29 | 18 pages, 13 figures |
 
 ## Visual Prompt Reasoning
 | **Title** | **Date** | **Comment** |
 | --- | --- | --- |
+| **[PPLLaVA: Varied Video Sequence Understanding With Prompt Guidance](https://arxiv.org/abs/2411.02327v4)** | 2026-05-01 | Accepted to ICLR' 26 |
 | **[FCMBench-Video: Benchmarking Document Video Intelligence](https://arxiv.org/abs/2604.25186v2)** | 2026-04-30 |  |
 | **[EAGLE: Expert-Augmented Attention Guidance for Tuning-Free Industrial Anomaly Detection in Multimodal Large Language Models](https://arxiv.org/abs/2602.17419v3)** | 2026-04-27 |  |
 | **[EV-CLIP: Efficient Visual Prompt Adaptation for CLIP in Few-shot Action Recognition under Visual Challenges](https://arxiv.org/abs/2604.22595v1)** | 2026-04-24 | <details><summary>14 pa...</summary><p>14 pages, 8 figures, 6 tables</p></details> |
@@ -152,13 +153,14 @@ labels: documentation
 | **[Thinking Diffusion: Penalize and Guide Visual-Grounded Reasoning in Diffusion Multimodal Language Models](https://arxiv.org/abs/2604.05497v1)** | 2026-04-07 | CVPR 2026 - main |
 | **[Token-Efficient Multimodal Reasoning via Image Prompt Packaging](https://arxiv.org/abs/2604.02492v1)** | 2026-04-02 | <details><summary>9 pag...</summary><p>9 pages including references</p></details> |
 | **[StreamGaze: Gaze-Guided Temporal Reasoning and Proactive Understanding in Streaming Videos](https://arxiv.org/abs/2512.01707v2)** | 2026-03-27 | <details><summary>Accep...</summary><p>Accepted to CVPR 2026, Project page: https://streamgaze.github.io/</p></details> |
-| **[Demographic Fairness in Multimodal LLMs: A Benchmark of Gender and Ethnicity Bias in Face Verification](https://arxiv.org/abs/2603.25613v1)** | 2026-03-26 | <details><summary>Accep...</summary><p>Accepted in CVPR 2026 workshops</p></details> |
 
 ## World Models for Autonomous Driving
 | **Title** | **Date** | **Comment** |
 | --- | --- | --- |
+| **[Physically Native World Models: A Hamiltonian Perspective on Generative World Modeling](https://arxiv.org/abs/2605.00412v1)** | 2026-05-01 |  |
 | **[HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation](https://arxiv.org/abs/2604.28196v1)** | 2026-04-30 | <details><summary>Exten...</summary><p>Extended version of ICCV 25 paper HERMES, Code: https://github.com/H-EmbodVis/HERMESV2, Project page: https://h-embodvis.github.io/HERMESV2/</p></details> |
 | **[Dreaming Across Towns: Semantic Rollout and Town-Adversarial Regularization for Zero-Shot Held-Out-Town Fixed-Route Driving in CARLA](https://arxiv.org/abs/2604.27994v1)** | 2026-04-30 |  |
+| **[World Model for Robot Learning: A Comprehensive Survey](https://arxiv.org/abs/2605.00080v1)** | 2026-04-30 | 43 pages, 6 figures |
 | **[Flying by Inference: Active Inference World Models for Adaptive UAV Swarms](https://arxiv.org/abs/2604.27935v1)** | 2026-04-30 | <details><summary>Submi...</summary><p>Submitted to IEEE journal</p></details> |
 | **[Graph World Models: Concepts, Taxonomy, and Future Directions](https://arxiv.org/abs/2604.27895v1)** | 2026-04-30 |  |
 | **[Do World Action Models Generalize Better than VLAs? A Robustness Study](https://arxiv.org/abs/2603.22078v3)** | 2026-04-30 |  |
@@ -170,12 +172,11 @@ labels: documentation
 | **[ProDrive: Proactive Planning for Autonomous Driving via Ego-Environment Co-Evolution](https://arxiv.org/abs/2604.25329v1)** | 2026-04-28 | <details><summary>Accep...</summary><p>Accepted to CVPR 2026 GigaBrain Challenge Workshop</p></details> |
 | **[NeuroHex: A Brain-Inspired Hex Coordinate System to Enable Highly Computationally-Efficient World Models for Continuous Online-Adaptive Learning](https://arxiv.org/abs/2603.00376v3)** | 2026-04-28 | <details><summary>This ...</summary><p>This is an expanded version of the paper titled "NeuroHex: Highly Efficient Hex Coordinate System for Creating World Models to Enable Adaptive AI" published in the proceedings of the 2026 Neuro Inspired Computational Elements (NICE) [1] conference. This is an archival version of the paper and is currently under review for an ACM journal publication</p></details> |
 | **[Emotion-Conditioned Short-Horizon Human Pose Forecasting with a Lightweight Predictive World Model](https://arxiv.org/abs/2604.23532v1)** | 2026-04-26 |  |
-| **[Planning Under Observation Mismatch for Traffic Signal Control via Adaptive Modular World Models](https://arxiv.org/abs/2501.02548v2)** | 2026-04-25 | <details><summary>Accep...</summary><p>Accepted by ICAPS 2026</p></details> |
-| **[DriVerse: Navigation World Model for Driving Simulation via Multimodal Trajectory Prompting and Motion Alignment](https://arxiv.org/abs/2504.18576v2)** | 2026-04-24 | 13 pages, 5 figures |
 
 ## Embodied AI for Navigation
 | **Title** | **Date** | **Comment** |
 | --- | --- | --- |
+| **[A Survey on Vision-Language-Action Models for Embodied AI](https://arxiv.org/abs/2405.14093v8)** | 2026-05-01 | <details><summary>Proje...</summary><p>Project page: https://github.com/yueen-ma/Awesome-VLA</p></details> |
 | **[Bridging Values and Behavior: A Hierarchical Framework for Proactive Embodied Agents](https://arxiv.org/abs/2604.27699v1)** | 2026-04-30 |  |
 | **[Robot Learning from Human Videos: A Survey](https://arxiv.org/abs/2604.27621v1)** | 2026-04-30 | <details><summary>Paper...</summary><p>Paper list: https://github.com/IRMVLab/awesome-robot-learning-from-human-videos</p></details> |
 | **[World2Minecraft: Occupancy-Driven Simulated Scenes Construction](https://arxiv.org/abs/2604.27578v1)** | 2026-04-30 |  |
@@ -190,7 +191,6 @@ labels: documentation
 | **[AgenticCache: Cache-Driven Asynchronous Planning for Embodied AI Agents](https://arxiv.org/abs/2604.24039v1)** | 2026-04-27 | <details><summary>Accep...</summary><p>Accepted at MLSys 2026</p></details> |
 | **[Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mechanisms](https://arxiv.org/abs/2604.23775v1)** | 2026-04-26 |  |
 | **[PhysCodeBench: Benchmarking Physics-Aware Symbolic Simulation of 3D Scenes via Self-Corrective Multi-Agent Refinement](https://arxiv.org/abs/2604.23580v1)** | 2026-04-26 |  |
-| **[AmaraSpatial-10K: A Spatially and Semantically Aligned 3D Dataset for Spatial Computing and Embodied AI](https://arxiv.org/abs/2604.23018v1)** | 2026-04-24 |  |
 
 ## Off-Road Datasets and Benchmarks
 | **Title** | **Date** | **Comment** |
