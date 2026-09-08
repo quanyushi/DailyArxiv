@@ -11,7 +11,7 @@
 ## Overview
 | Item | Value |
 | --- | --- |
-| Last update | `2026-09-07` |
+| Last update | `2026-09-08` |
 | Search topics | `12` |
 | Query mode | Title/abstract combined Boolean queries |
 | Max results per topic | `50` |
