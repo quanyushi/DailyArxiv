@@ -1,5 +1,5 @@
 ---
-title: Latest 15 Papers - November 11, 2026
+title: Latest 15 Papers - November 12, 2026
 labels: documentation
 ---
 **Please check the [Github](https://github.com/quanyushi/DailyArxiv) page for a better reading experience and more papers.**
